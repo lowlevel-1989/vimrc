@@ -1,3 +1,5 @@
+set t_Co=256
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -10,15 +12,21 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugin
+" plugin plus
 Plugin 'YouCompleteMe' " Autocompletado
 Plugin 'nerdtree'      " Navegar Entre Ficheros 
 Plugin 'vim-gitgutter' " Git Status por archivo
 Plugin 'vim-fugitive'  " Git Branch Info
 Plugin 'vim-airline'   " Barra de estado vim
 
-" Soporte a lenguajes
+" Plugin languages
+Plugin 'vim-javascript'
 Plugin 'vim-coffee-script'
+Plugin 'vim-stylus'
+Plugin 'jade.vim'
+
+" Plugin colors
+Plugin 'molokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -68,7 +76,7 @@ set nowrap              " don't wrap long lines
 set relativenumber
 set showmatch           " higlight matching parentheses and brackets
 
-color delek
+color molokai
 
 " =====================
 " 6. MAPS AND FUNCTIONS
@@ -79,9 +87,10 @@ color delek
 " command NT NERDTree     " Legacy. Classy. I didn't know the power of maps
 " yet.
 
-nmap <F2> :NERDTreeToggle<cr>
-nmap <F3> :NERDTree<CR>
-nmap <C-n> :NERDTree<CR>
+nmap <F3> :NERDTreeToggle<cr>
+nmap <C-n> :NERDTreeToggle<CR>
+" :let g:NERDTreeDirArrowExpandable = '+'
+" :let g:NERDTreeDirArrowCollapsible = '-'
 :let g:NERDTreeWinSize=20
 :let g:tagbar_width=20
 
@@ -94,5 +103,5 @@ function! ToggleRelativeNumber()
   endif
 endfunction
 
-nmap <F4> :call ToggleRelativeNumber()<CR>
-imap <F4> <Esc>:call ToggleRelativeNumber()<CR>a
+nmap <F2> :call ToggleRelativeNumber()<CR>
+imap <F2> <Esc>:call ToggleRelativeNumber()<CR>a
