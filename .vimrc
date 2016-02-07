@@ -87,8 +87,10 @@ color molokai
 " command NT NERDTree     " Legacy. Classy. I didn't know the power of maps
 " yet.
 
-nmap <F3> :NERDTreeToggle<cr>
+nmap <F2> :NERDTree<cr>
+nmap <F3> :NERDTreeClose<cr>
 nmap <C-n> :NERDTreeToggle<CR>
+
 " :let g:NERDTreeDirArrowExpandable = '+'
 " :let g:NERDTreeDirArrowCollapsible = '-'
 :let g:NERDTreeWinSize=20
@@ -103,5 +105,5 @@ function! ToggleRelativeNumber()
   endif
 endfunction
 
-nmap <F2> :call ToggleRelativeNumber()<CR>
-imap <F2> <Esc>:call ToggleRelativeNumber()<CR>a
+nmap <F4> :call ToggleRelativeNumber()<CR>
+imap <F4> <Esc>:call ToggleRelativeNumber()<CR>a
