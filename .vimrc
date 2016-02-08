@@ -13,11 +13,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " plugin plus
-Plugin 'YouCompleteMe' " Autocompletado
-Plugin 'nerdtree'      " Navegar Entre Ficheros 
-Plugin 'vim-gitgutter' " Git Status por archivo
-Plugin 'vim-fugitive'  " Git Branch Info
-Plugin 'vim-airline'   " Barra de estado vim
+Plugin 'Valloric/YouCompleteMe'  " Autocompletado
+Plugin 'scrooloose/nerdtree'              " Navegar Entre Ficheros 
+Plugin 'vim-gitgutter'                    " Git Status por archivo
+Plugin 'tpope/vim-fugitive'               " Git Branch Info
+Plugin 'vim-airline'                      " Barra de estado vim
 
 " Plugin languages
 Plugin 'vim-javascript'
@@ -76,7 +76,7 @@ set nowrap              " don't wrap long lines
 set relativenumber
 set showmatch           " higlight matching parentheses and brackets
 
-color molokai
+:silent! color molokai
 
 " =====================
 " 6. MAPS AND FUNCTIONS
