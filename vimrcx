@@ -13,11 +13,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " plugin plus
-Plugin 'Valloric/YouCompleteMe'  " Autocompletado
 Plugin 'scrooloose/nerdtree'              " Navegar Entre Ficheros 
 Plugin 'vim-gitgutter'                    " Git Status por archivo
 Plugin 'tpope/vim-fugitive'               " Git Branch Info
 Plugin 'vim-airline'                      " Barra de estado vim
+Plugin 'Valloric/YouCompleteMe'           " Autocompletado
 
 " Plugin languages
 Plugin 'vim-javascript'
