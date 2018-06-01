@@ -1,38 +1,46 @@
-set t_Co=256
+set t_Co=256 " soporte para 256 colores
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
+set history=1000              " tamaño del history
+
+filetype plugin indent on     " activar plugin indent y filetype de vim
+
+"https://robertbasic.com/blog/force-python-version-in-vim/
+if has('python3') " soporte por defecto a python3
+endif
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 " plugin plus
-Plugin 'scrooloose/nerdtree'              " Navegar Entre Ficheros 
+Plugin 'scrooloose/nerdtree'              " Navegar Entre Ficheros
 Plugin 'vim-gitgutter'                    " Git Status por archivo
 Plugin 'tpope/vim-fugitive'               " Git Branch Info
 Plugin 'vim-airline'                      " Barra de estado vim
+Plugin 'davidhalter/jedi-vim'		  " Autocompletado para python3
+Plugin 'kien/ctrlp.vim'                   " con ctrl+P buscamos archivos de forma rapida
+Plugin 'tagbar'				  " Busca donde se creo dicha funcion que estoy utilizando
+Plugin 'ntpeters/vim-better-whitespace'   " Pinta los espacios en blanco
+Plugin 'mattn/emmet-vim'                  " emmet vim
+"Plugin 'terryma/vim-multiple-cursors'    " Multiple Cursors, ¡edita varias zonas del fichero a la vez!
 
 " Plugin languages
 Plugin 'vim-javascript'
 Plugin 'vim-coffee-script'
 Plugin 'vim-stylus'
 Plugin 'jade.vim'
+Plugin 'django.vim'
 
 " Plugin colors
 Plugin 'molokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
+
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -46,63 +54,62 @@ filetype plugin indent on    " required
 " ================
 " 3. FILE SETTINGS
 " ================
+" source $VIMRUNTIME/filetype.vim " fix filetype ya no es necesario
 
-" 70s are over and swap files are part of the past.
-" If you need to backup something, use Git, for God's sake.
-set noswapfile
-set nobackup
+set noswapfile          " desactivar swapfile
+set nobackup            " desactivar el backup, para eso utilizamos git
+set nowrap              " no romper las lineas largas
+set encoding=utf-8      " siempre utilizar utf-8
 
-" Modify indenting settings
-set autoindent              " autoindent always ON. 
-set expandtab               " expand tabs
-set shiftwidth=2            " spaces for autoindentingPS AND FUNCTIONS
-" =====================
-set softtabstop=2           " remove a full pseudo-TAB when i press <BS>
 
-" Modify some other settings about files
-set encoding=utf-8          " always use unicode (god damnit, windows)
-set backspace=indent,eol,start " backspace always works on insert mode
+au Filetype html       setlocal shiftwidth=2 tabstop=2
+au Filetype htmldjango setlocal shiftwidth=2 tabstop=2
+au Filetype yaml       setlocal shiftwidth=2 tabstop=2
+au Filetype javascript setlocal shiftwidth=2 tabstop=2
+au FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
+
+
+set foldmethod=manual               " activar soporte a folding metodo manual
+au BufWinLeave ?* mkview            " al salir crea la view para persistir el folding
+au BufWinEnter ?* silent loadview   " al entrar carga la view para persistir el folding
+
 
 " ================
-" 5. COLORS AND UI
+" COLORS AND UI
 " ================
 
-set showmode            " always show which more are we in
-set laststatus=2        " always show statusbar
-set wildmenu            " enable visual wildmenu
+set cursorline          " pintar linea en la posicion actual
+set laststatus=2        " muestra la statusbar
+set number              " mostrar el numero de la linea
+set relativenumber	" se utiliza numeros relativos
+set showmatch           " higlight matching () y []
 
-set nowrap              " don't wrap long lines
-set relativenumber
-set showmatch           " higlight matching parentheses and brackets
-
-:silent! color molokai
+silent! color molokai
 
 " =====================
-" 6. MAPS AND FUNCTIONS
+" MISCELLANEOUS
 " =====================
-
-" NERDTree: map ,nt for toggling NERDTree. Faster than the old :NT command
-" since I don't have to hold Shift whenever I want to display NERDTree.
-" command NT NERDTree     " Legacy. Classy. I didn't know the power of maps
-" yet.
 
 nmap <F2> :NERDTree<cr>
 nmap <F3> :NERDTreeClose<cr>
-nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-t> :NERDTreeToggle<CR>
 
-" :let g:NERDTreeDirArrowExpandable = '+'
-" :let g:NERDTreeDirArrowCollapsible = '-'
-:let g:NERDTreeWinSize=20
-:let g:tagbar_width=20
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeWinSize=20
+let g:tagbar_width=20
+
 
 function! ToggleRelativeNumber()
   if &relativenumber == 1
     set norelativenumber
-    set number
   else
     set relativenumber
   endif
 endfunction
 
+nmap <F8> :TagbarToggle<CR>
 nmap <F4> :call ToggleRelativeNumber()<CR>
 imap <F4> <Esc>:call ToggleRelativeNumber()<CR>a
+
+" autocmd BufWritePost * silent! !ctags -R --exclude=.git .

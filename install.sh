@@ -22,28 +22,19 @@ DISTRO=$4
 if [ "$YOUCOMPLETEME" = 'youCompleteMe' ]; then
 
   if [ "$DISTRO" = 'fedora' ]; then
-    dnf install -y automake gcc gcc-c++ kernel-devel
-    dnf install -y python-devel
+    dnf install automake gcc gcc-c++ kernel-devel cmake
+    dnf install -y python-devel python3-devel
   fi
 
   if [ "$DISTRO" = 'ubuntu' ]; then
-    apt-get install -fs build-essential 
-    apt-get install -fs python-dev
+    apt-get install -fs build-essential cmake3
+    apt-get install -fs python-dev python3-dev
   fi
 
   git clone https://github.com/Valloric/YouCompleteMe.git $HOME/.vim/bundle/YouCompleteMe
 
-  wget https://cmake.org/files/v3.4/cmake-3.4.3.tar.gz
-  tar -xzvf cmake-3.4.3.tar.gz
-  rm -f cmake-3.4.3.tar.gz
-  cd cmake-3.4.3
-  ./configure
-  make
-  make install
-  cd ..
-  rm -rf cmake-3.4.3
-
   cd $HOME/.vim/bundle/YouCompleteMe
+  git submodule update --init --recursive
   YCM_CORES=$CORES python install.py --clang-completer --tern-completer
 else
 
