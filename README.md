@@ -20,6 +20,7 @@ modo normal  \tn             tag next
 modo normal  \tp             tag prev
 modo normal  <F8>            tagbar
 
+modo normal  <vip>           Seleciona todo el parrafo en modo view
 modo view    <zf>            Comprimir en una linea
 modo view    <za>            Expandir 
 
@@ -50,11 +51,22 @@ Registro de expresión
 
 "ap pega el contenido del registro a
 
-"_dd eliminar linea y enviar el contenido a null
+solo un _ guion bajo que es el registro a blackhole
+
+"__dd eliminar linea y enviar el contenido a null
 
 ------- misc -------------
 
 :e newfile
+
+:%s/foo/bar/g  reemplazar
+
+------- multicursor ------
+
+<C-n> iniciar multicursor
+<C-n> siguiente
+<C-x> saltar el siguiente
+<C-p> anterior
 
 -------- tabs ------------
 

@@ -18,7 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugin plus
 Plugin 'scrooloose/nerdtree'              " Navegar Entre Ficheros
-Plugin 'vim-gitgutter'                    " Git Status por archivo
+Plugin 'formatcom/vim-gitgutter'          " Git Status por archivo
 Plugin 'tpope/vim-fugitive'               " Git Branch Info
 Plugin 'vim-airline'                      " Barra de estado vim
 Plugin 'davidhalter/jedi-vim'		  " Autocompletado para python3
@@ -30,11 +30,13 @@ Plugin 'mattn/emmet-vim'                  " emmet vim
 Plugin 'terryma/vim-multiple-cursors'    " Multiple Cursors, ¡edita varias zonas del fichero a la vez!
 
 " Plugin languages
-Plugin 'vim-javascript'
+Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'vim-coffee-script'
 Plugin 'vim-stylus'
 Plugin 'jade.vim'
 Plugin 'django.vim'
+Plugin 'lgeorget/maude.vim'
 
 " Plugin colors
 Plugin 'molokai'
@@ -68,6 +70,7 @@ au Filetype html       setlocal shiftwidth=2 tabstop=2
 au Filetype htmldjango setlocal shiftwidth=2 tabstop=2
 au Filetype yaml       setlocal shiftwidth=2 tabstop=2
 au Filetype javascript setlocal shiftwidth=2 tabstop=2
+au Filetype maude      setlocal shiftwidth=2 tabstop=2
 au FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
 
 set foldmethod=manual               " activar soporte a folding metodo manual
