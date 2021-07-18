@@ -29,6 +29,9 @@ modo insert  <C-y>,          html:5 emmet
 modo comando <:set paste>
 modo comando <:set nopaste>
 
+modo comando <:set nolist> esconder caracteres especiales
+modo comando <:set list>   mostrar caracteres especiales
+
 modo normal  <C-e>           Scroll abajo
 modo normal  <C-y>           Scroll arriba
 
