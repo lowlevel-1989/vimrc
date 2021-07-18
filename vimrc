@@ -89,6 +89,9 @@ set relativenumber	" se utiliza numeros relativos
 set showmatch           " higlight matching () y []
 "set paste               " disabled auto-indenting
 
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»   " Mostrar caracteres especiales
+set list
+
 silent! color molokai
 
 " =====================
