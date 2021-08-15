@@ -64,6 +64,9 @@ set nobackup            " desactivar el backup, para eso utilizamos git
 set nowrap              " no romper las lineas largas
 set encoding=utf-8      " siempre utilizar utf-8
 
+set shiftwidth=2
+set tabstop=2
+
 au Filetype c          setlocal shiftwidth=4 tabstop=4
 au Filetype cpp        setlocal shiftwidth=4 tabstop=4
 au Filetype html       setlocal shiftwidth=2 tabstop=2
@@ -90,7 +93,7 @@ set showmatch           " higlight matching () y []
 "set paste               " disabled auto-indenting
 
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»   " Mostrar caracteres especiales
-set list
+set nolist
 
 silent! color molokai
 
