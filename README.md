@@ -132,4 +132,4 @@ v - visually select
 ---- grabar si olvidas root
 
 :w ! sudo tee %
-~~
+~~~
