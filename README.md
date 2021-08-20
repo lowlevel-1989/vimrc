@@ -128,9 +128,8 @@ y - yank (copy)
 v - visually select
 
 {command}{text object or motion}
-~~
 
 ---- grabar si olvidas root
-~~~
+
 :w ! sudo tee %
-~~~
+~~
