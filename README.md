@@ -9,6 +9,10 @@ $ python3 install.py --all
 ~~~
 
 ~~~
+:YcmDebugInfo                YCM, Ver información de debug
+~~~
+
+~~~
 modo normal  <C-P>           Buscar archivo
 modo normal  <F8>            TagBar
 modo normal  <F4>            ToggleRelativeNumber
