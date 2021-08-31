@@ -110,8 +110,6 @@ let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeWinSize=20
 let g:tagbar_width=20
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-
 function! ToggleRelativeNumber()
   if &relativenumber == 1
     set norelativenumber
