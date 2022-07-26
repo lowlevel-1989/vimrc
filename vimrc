@@ -37,6 +37,7 @@ Plugin 'vim-stylus'
 Plugin 'jade.vim'
 Plugin 'django.vim'
 Plugin 'lgeorget/maude.vim'
+Plugin 'nginx.vim'
 
 " Plugin colors
 Plugin 'molokai'
@@ -68,6 +69,7 @@ set shiftwidth=2
 set tabstop=2
 
 au Filetype c          setlocal shiftwidth=4 tabstop=4
+au Filetype conf       setlocal shiftwidth=4 tabstop=4
 au Filetype cpp        setlocal shiftwidth=4 tabstop=4
 au Filetype html       setlocal shiftwidth=2 tabstop=2
 au Filetype htmldjango setlocal shiftwidth=2 tabstop=2
@@ -109,6 +111,8 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeWinSize=20
 let g:tagbar_width=20
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 
 function! ToggleRelativeNumber()
   if &relativenumber == 1
