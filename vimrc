@@ -65,18 +65,38 @@ set nobackup            " desactivar el backup, para eso utilizamos git
 set nowrap              " no romper las lineas largas
 set encoding=utf-8      " siempre utilizar utf-8
 
-set shiftwidth=2
-set tabstop=2
+" Comandos para controlar el tab
+" set shiftwidth=2
+" set tabstop=2
 
-au Filetype c          setlocal shiftwidth=4 tabstop=4
-au Filetype conf       setlocal shiftwidth=4 tabstop=4
-au Filetype cpp        setlocal shiftwidth=4 tabstop=4
-au Filetype html       setlocal shiftwidth=2 tabstop=2
-au Filetype htmldjango setlocal shiftwidth=2 tabstop=2
-au Filetype yaml       setlocal shiftwidth=2 tabstop=2
-au Filetype javascript setlocal shiftwidth=2 tabstop=2
-au Filetype maude      setlocal shiftwidth=2 tabstop=2
-au FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
+" ver valor actual de una variable
+" :set tabstop?
+
+" cambia los tab por espacio
+set expandtab
+
+" espacio de los tabuladores
+" set tabstop=2
+" identación, espacio a la izquierda que se deja en una
+" nueva linea ej:
+" if (1 == 1) {
+" · · · <- este espacio / tab
+" set shiftwidth=2 <- aun no entiendo como funciona
+"
+" softtabstop cambia espacio por tab al dar enter ej:
+" 1 ····
+" 2 ->->
+
+au Filetype c          setlocal shiftwidth=4                tabstop=4     expandtab
+au FileType gdscript   setlocal shiftwidth=2 softtabstop=2  tabstop=2     expandtab!
+au Filetype conf       setlocal shiftwidth=4                tabstop=4     expandtab!
+au Filetype cpp        setlocal shiftwidth=4                tabstop=4     expandtab!
+au Filetype html       setlocal shiftwidth=2                tabstop=2     expandtab!
+au Filetype htmldjango setlocal shiftwidth=2                tabstop=2     expandtab!
+au Filetype yaml       setlocal shiftwidth=2                tabstop=2     expandtab!
+au Filetype javascript setlocal shiftwidth=2                tabstop=2     expandtab!
+au Filetype maude      setlocal shiftwidth=2                tabstop=2     expandtab!
+au FileType python     setlocal shiftwidth=4 softtabstop=4                expandtab
 
 set foldmethod=manual               " activar soporte a folding metodo manual
 au BufWinLeave ?* mkview            " al salir crea la view para persistir el folding
@@ -111,8 +131,6 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeWinSize=20
 let g:tagbar_width=20
-
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 
 function! ToggleRelativeNumber()
   if &relativenumber == 1
